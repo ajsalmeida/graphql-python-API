@@ -22,23 +22,7 @@ class Politic:
 	date: str
 	time_interval:str
 	location: str
-'''
-@strawberry.type
-class Query:
-	politics: typing.List[Politic]
 
-def get_pol():
-    return [
-    Politic(
-    	id =1,
-    	node ='22AX35',
-    	temperature ='22',
-    	date = '30/01/2022',
-    	time_interval = '08:00-17:00',
-    	location ='first floor'
-        ),
-    ]
-'''
 def get_pols() -> List[Politic]:
 	with Session(engine) as session:
 		politics = session.query(SQLPolitic).all()
